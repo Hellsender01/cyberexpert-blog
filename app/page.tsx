@@ -12,7 +12,7 @@ export default function IndexPage() {
           Cyber Expert
         </h1>
         <div className="w-[50%] py-4 items-center">
-          <Input search={true}  type="text" className="h-full dark:bg-gray-700 ring-white dark:hover:bg-gray-700 transition-colors rounded-md focus-visible:outline-none focus-visible:ring-2"/>
+          <Input search={true}  type="text" className="h-[60px]  dark:bg-gray-700 ring-white dark:hover:bg-gray-700 transition-colors rounded-md focus-visible:outline-none "/>
           {/* <Button variant="default" size="lg">Search</Button> */}
         </div>
       </div>

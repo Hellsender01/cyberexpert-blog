@@ -1,5 +1,6 @@
 export type SiteConfig = typeof siteConfig
 
+
 export const siteConfig = {
   name: "Cyber Expert",
   description:
@@ -17,5 +18,6 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
+    youtube: "https://www.youtube.com/@TheCyberExpert"
   },
 }

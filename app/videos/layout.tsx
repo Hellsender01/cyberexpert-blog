@@ -11,9 +11,9 @@ export default function VideoLayout ({ children }: VideoLayoutProps) {
             <div className="hidden md:block w-[20%]">
                 <Sidebar categories={categories} />
             </div>
-            <div>
+            <>
                 {children}
-            </div>
+            </>
         </div>
     )
 }

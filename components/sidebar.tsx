@@ -4,20 +4,16 @@ import { LayoutGrid } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 
-import { Categories, updateCategory } from "../data/categories"
+import { Categories } from "../data/categories"
+import Link from "next/link"
+import { useState } from "react"
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
     categories: Categories[]
 }
 
 export function Sidebar({ className, categories }: SidebarProps) {
-
-    const handleCategoryClick = (category: Categories) => {
-        const {name, active} = category
-        const newActive = !active
-        updateCategory(name, newActive)
-    }
-
+    const [menu, setMenu] = useState<Categories>()
     return (
         <div className={cn("pb-12", className)}>
             <div className="space-y-4 py-4">
@@ -29,16 +25,18 @@ export function Sidebar({ className, categories }: SidebarProps) {
                     <div className="space-y-1">
                         <div className="space-y-1">
                             {categories.map((category) => (
-                                <Button
-                                    key={category.name}
-                                    variant={category.active ? "secondary" : "ghost"} // Update the variant based on the active property
-                                    size="sm"
-                                    className="w-full justify-start"
-                                    onClick={() => handleCategoryClick(category)} // Add an onClick event handler
-                                >
-                                    <LayoutGrid className="mr-2 h-4 w-4" />
-                                    {category.name}
-                                </Button>
+                                <Link href={`/videos/${category.link}`} className="space-y-3">
+                                    <Button
+                                        key={category.name}
+                                        variant={category.active ? "secondary" : "ghost"} 
+                                        size="sm"
+                                        className="w-full justify-start"
+                                        onClick={() => setMenu(category)}
+                                    >
+                                        <LayoutGrid className="mr-2 h-4 w-4" />
+                                        {category.name}
+                                    </Button>
+                                </Link>
                             ))}
                         </div>
                     </div>

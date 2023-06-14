@@ -1,8 +1,10 @@
+"use client"
+
 import { Input } from "@/components/ui/input"
 import { VideoCard } from "@/components/videocard";
+import { webExploitation } from "@/data/web-exploitation";
 
 const VideoPage = () => {
-    const iterations = Array.from({ length: 10 }, (_, index) => index);
 
     return (
         <div className="w-full">
@@ -16,8 +18,8 @@ const VideoPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full gap-4">
                 {
-                    iterations.map((i) => (
-                        <VideoCard key={i}/>
+                    webExploitation.map((video) => (
+                        <VideoCard key={video.youtube} title={video.title} youtube={video.youtube} />
                     ))
                 }
             </div>

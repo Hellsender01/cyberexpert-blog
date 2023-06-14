@@ -3,24 +3,17 @@ export type Categories = (typeof categories)[number]
 export const categories = [
   {
     name:"Web Exploitation",
-    active : true
+    active : true,
+    link: "/web-exploitation"
   },
   {
     name:"Binary Exploitation",
-    active : false
+    active : false,
+    link:"/binary-exploitation"
   },
   {
     name:"Network Forensics",
-    active : false
+    active : false,
+    link:"/network-forensics"
   },
 ]
-
-
-export const updateCategory = (categoryName: string, active: boolean) => {
-  const updatedCategories = categories.map((category) => {
-    if (category.name === categoryName) {
-      return { ...category, active };
-    }
-    return category;
-  })
-}

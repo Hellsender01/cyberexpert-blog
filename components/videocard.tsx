@@ -47,15 +47,17 @@ export function VideoCard({ title, youtube }: VideoCardProps) {
           </form>
         </CardContent>
         <Separator className="my-4" />
-        <CardFooter className="flex justify-between">
-        <Switch id="complete" checked={complete} onClick={handleToggle} />
-          {
-            complete ?
-             
-              <Label htmlFor="complete">completed</Label>
-              : 
-              <Label htmlFor="complete">not completed</Label>
-          }
+        <CardFooter className="flex-col items-center justify-between space-y-4">
+          <div className="flex items-center gap-4">
+          <Switch id="complete" checked={complete} onClick={handleToggle} />
+            {
+              complete ?
+              
+                <Label htmlFor="complete">completed</Label>
+                : 
+                <Label htmlFor="complete">not completed</Label>
+            }
+          </div>
           <Link href={youtube} target="_">
             <Button className="flex items-center">
               Open

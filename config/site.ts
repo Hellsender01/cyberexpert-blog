@@ -2,7 +2,7 @@ export type SiteConfig = typeof siteConfig
 
 
 export const siteConfig = {
-  name: "Cyber Expert",
+  name: "The Cyber Expert",
   description:
     "Blog posts about cyber security, programming, and other things.",
   mainNav: [
@@ -20,8 +20,8 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
+    twitter: "https://twitter.com/TheCyberExpert_",
+    github: "https://github.com/Hellsender01",
     youtube: "https://www.youtube.com/@TheCyberExpert"
   },
 }

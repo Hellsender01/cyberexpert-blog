@@ -3,6 +3,8 @@
 import { Input } from "@/components/ui/input"
 import { VideoCard } from "@/components/videocard";
 import { webExploitation } from "@/data/web-exploitation";
+import { Categories, categories } from "@/data/categories";
+import CategoryCard from "@/components/categorycard";
 
 const VideoPage = () => {
 
@@ -16,10 +18,10 @@ const VideoPage = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4">
                 {
-                    webExploitation.map((video, i) => (
-                        <VideoCard key={i} title={video.title} youtube={video.youtube} />
+                    categories.map((category, index) => (
+                        <CategoryCard title={category.name} link={category.link} />
                     ))
                 }
             </div>

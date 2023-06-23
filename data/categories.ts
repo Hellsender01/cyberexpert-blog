@@ -3,7 +3,7 @@ export type Categories = (typeof categories)[number]
 export const categories = [
   {
     name:"Web Exploitation",
-    active : true,
+    active : false,
     link: "/web-exploitation"
   },
   {

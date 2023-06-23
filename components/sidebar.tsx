@@ -22,23 +22,21 @@ export function Sidebar({ className, categories }: SidebarProps) {
                         Categories
                     </h2>
 
-                    <div className="space-y-1">
-                        <div className="space-y-1">
-                            {categories.map((category, i) => (
-                                <Link href={`/videos/${category.link}`} className="space-y-3">
-                                    <Button
-                                        key={i}
-                                        variant={category.active ? "secondary" : "ghost"} 
-                                        size="sm"
-                                        className="w-full justify-start"
-                                        onClick={() => setMenu(category)}
-                                    >
-                                        <LayoutGrid className="mr-2 h-4 w-4" />
-                                        {category.name}
-                                    </Button>
-                                </Link>
-                            ))}
-                        </div>
+                    <div className="space-y-4">
+                        {categories.map((category, i) => (
+                            <Link href={`/videos/${category.link}`} className="space-y-5 gap-3">
+                                <Button
+                                    key={i}
+                                    variant={menu?.active ? "secondary" : "ghost"}
+                                    size="sm"
+                                    className="w-full justify-start"
+                                    onClick={() => setMenu(category)}
+                                >
+                                    <LayoutGrid className="mr-2 h-4 w-4" />
+                                    {category.name}
+                                </Button>
+                            </Link>
+                        ))}
                     </div>
                 </div>
             </div>

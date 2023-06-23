@@ -1,4 +1,6 @@
+"use client"
 import { Sidebar } from "@/components/sidebar"
+import { ToastProvider } from "@/components/ui/toast"
 import { categories } from "@/data/categories"
 
 interface VideoLayoutProps {
@@ -7,13 +9,15 @@ interface VideoLayoutProps {
 
 export default function VideoLayout ({ children }: VideoLayoutProps) {
     return (
-        <div className="flex w-full container">
-            <div className="hidden md:block w-[20%]">
-                <Sidebar categories={categories} />
+   
+            <div className="flex w-full container">
+                <div className="hidden md:block w-[20%]">
+                    <Sidebar categories={categories} />
+                </div>
+                <>
+                    {children}
+                </>
             </div>
-            <>
-                {children}
-            </>
-        </div>
+    
     )
 }

@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -15,6 +17,7 @@ import {
 import { Label } from "@/components/ui/label"
 
 import { Switch } from "./ui/switch"
+import { Separator } from "@radix-ui/react-select"
 
 interface VideoCardProps {
   title: string
@@ -22,6 +25,10 @@ interface VideoCardProps {
 }
 
 export function VideoCard({ title, youtube }: VideoCardProps) {
+  const [complete, setComplete] = React.useState<boolean>(false);
+  const handleToggle = () => {
+    complete ? setComplete(false) : setComplete(true)
+  };
   return (
     <Card className="w-full">
       <CardHeader>
@@ -31,14 +38,19 @@ export function VideoCard({ title, youtube }: VideoCardProps) {
         <form>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5 items-center justify-center">
-              Description
+              <CardDescription>
+                Description
+              </CardDescription>
             </div>
           </div>
         </form>
       </CardContent>
+      <Separator className="my-4" />
       <CardFooter className="flex justify-between">
-        <Switch id="complete" />
-        <Label htmlFor="complete">Mark as completed</Label>
+      <Switch id="complete" checked={complete} onClick={handleToggle} />
+        {
+          complete ? <Label htmlFor="complete">completed</Label> : <Label htmlFor="complete">not completed</Label>
+        }
         <Link href={youtube} target="_">
           <Button className="flex items-center">
             Open

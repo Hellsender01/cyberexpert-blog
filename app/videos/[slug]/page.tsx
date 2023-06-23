@@ -5,6 +5,7 @@ import firebase from "@/firebaseConfig";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Input } from "@/components/ui/input";
 import { VideoCard } from "@/components/videocard";
+import { Skeleton } from "@/components/ui/skeleton"
 
 interface Video {
   title: string;
@@ -18,6 +19,7 @@ interface VideosListProps {
 }
 
 export default function VideosListPage({ params }: VideosListProps) {
+  const [loading, setLoading] = useState<boolean>(false);
   const [title, setTitle] = useState<string | null>(null);
   const [search, setSearch] = useState<string>("");
   const [videoData, setVideoData] = useState<Video[]>([]);
@@ -46,6 +48,7 @@ export default function VideosListPage({ params }: VideosListProps) {
   const { slug } = params;
 
   useEffect(() => {
+    setLoading(true)
     const fetchVideos = async () => {
       let categoryTitle = null;
       let categoryValue = "";
@@ -64,6 +67,7 @@ export default function VideosListPage({ params }: VideosListProps) {
       setTitle(categoryTitle);
       const videos = await fetchVideosByCategory(categoryValue);
       setVideoData(videos);
+      setLoading(false)
     };
 
     fetchVideos();
@@ -80,39 +84,13 @@ export default function VideosListPage({ params }: VideosListProps) {
     filterVideos();
   }, [search, videoData]);
 
-  const extractYouTubeVideoId = (url: string): string | null => {
-    const videoIdRegex =
-      /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/|youtube\.com\/(?:v\/|embed\/|watch\?v=))([\w-]{11})(?:\S+)?$/;
-    const match = url.match(videoIdRegex);
-    return match && match[1] ? match[1] : null;
-  };
-
-  const getAvatar = async (link: string): Promise<string | null> => {
-    const videoId = extractYouTubeVideoId(link);
-    try {
-      const avatarImgResponse = await fetch(
-        `https://img.youtube.com/vi/${videoId}/0.jpg`
-      );
-      if (avatarImgResponse.ok) {
-        return avatarImgResponse.url;
-      } else {
-        console.error(
-          `Failed to fetch avatar image: ${avatarImgResponse.status} ${avatarImgResponse.statusText}`
-        );
-        return null;
-      }
-    } catch (error) {
-      console.error("Failed to fetch avatar image:", error);
-      return null;
-    }
-  };
-
   return (
     <div className="w-full">
       <div className="flex items-center space-y-4 pb-10">
-        <h1 className="text-3xl text-white">{title}</h1>
+        <h1 className="md:text-3xl dark:text-white ">{title}</h1>
         <div className="ml-auto">
           <Input
+            className="shadow-md"
             search={true}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
@@ -121,9 +99,17 @@ export default function VideosListPage({ params }: VideosListProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full gap-4">
-        {filteredVideoData.map((video, i) => (
-          <VideoCard key={i} title={video.title} youtube={video.link} />
-        ))}
+        {
+          loading ?
+            <div className="flex flex-col items-start space-y-4">
+              <Skeleton className="h-12 w-[250px]" />
+              <Skeleton className="h-6 w-[250px]" />
+              <Skeleton className="h-6 w-[200px]" />
+            </div>
+            :
+            filteredVideoData.map((video, i) => (
+              <VideoCard key={i} title={video.title} youtube={video.link} />
+            ))}
       </div>
     </div>
   );

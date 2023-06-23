@@ -18,8 +18,8 @@ const VideoPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full gap-4">
                 {
-                    webExploitation.map((video) => (
-                        <VideoCard key={video.youtube} title={video.title} youtube={video.youtube} />
+                    webExploitation.map((video, i) => (
+                        <VideoCard key={i} title={video.title} youtube={video.youtube} />
                     ))
                 }
             </div>

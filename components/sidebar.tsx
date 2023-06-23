@@ -24,10 +24,10 @@ export function Sidebar({ className, categories }: SidebarProps) {
 
                     <div className="space-y-1">
                         <div className="space-y-1">
-                            {categories.map((category) => (
+                            {categories.map((category, i) => (
                                 <Link href={`/videos/${category.link}`} className="space-y-3">
                                     <Button
-                                        key={category.name}
+                                        key={i}
                                         variant={category.active ? "secondary" : "ghost"} 
                                         size="sm"
                                         className="w-full justify-start"

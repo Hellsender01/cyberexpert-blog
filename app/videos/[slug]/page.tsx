@@ -129,7 +129,7 @@ export default function VideosListPage({ params }: VideosListProps) {
               (_, index) => (
                 <li
                   key={index}
-                  className={`px-4 py-1 rounded bg-primary text-primary-foreground hover:bg-primary/90 ${
+                  className={`px-4 py-1 rounded bg-primary text-primary-foreground ${
                     index + 1 === currentPage ? "bg-transparent text-slate-100 border-2 border-white" : "bg-gray-300"
                   }`}
                   onClick={() => paginate(index + 1)}

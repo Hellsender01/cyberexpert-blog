@@ -43,7 +43,7 @@ export function VideoCard({ title, youtube, thumbnail, description }: VideoCardP
         <CardContent>
           <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5 items-center justify-center">
-              <CardDescription>
+              <CardDescription className="space-y-4">
       
                   <img src={`${thumbnail}`} alt="youtube" />
   

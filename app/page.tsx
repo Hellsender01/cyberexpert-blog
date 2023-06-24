@@ -11,11 +11,13 @@ export default function IndexPage() {
         <h1 className="text-3xl font-bold uppercase leading-tight tracking-tighter text-center md:text-4xl">
           The Cyber Expert
         </h1>
-        <div className="w-[90%] md:w-[50%] py-4 items-center">
+        <div className="w-[80%] md:w-[50%] py-4 items-center">
           <Input search={true} type="text" className="md:h-[60px] dark:bg-gray-700 ring-white dark:hover:bg-gray-700 transition-colors rounded-md focus-visible:outline-none "/>
           {/* <Button variant="default" size="lg">Search</Button> */}
         </div>
       </div>
+
+
     </section>
   )
 }

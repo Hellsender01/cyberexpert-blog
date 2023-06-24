@@ -11,7 +11,7 @@ export const siteConfig = {
       href: "/",
     },
     {
-      title: "Videos",
+      title: "Categories",
       href: "/videos",
     },
     {

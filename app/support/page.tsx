@@ -14,9 +14,10 @@ const SupportPage = () => {
             <div className="">
                 <Accordion type="single" collapsible>
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+                        <AccordionTrigger>How Do I Get Started With Hacking?</AccordionTrigger>
                         <AccordionContent>
-                            Yes. It adheres to the WAI-ARIA design pattern.
+                        You can start by Learning Programming, Networking, and Operating Systems. Also, you can start with my Network Penetration Testing Playlist.
+                        https://www.youtube.com/watch?v=MspUTBYKrkM
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>

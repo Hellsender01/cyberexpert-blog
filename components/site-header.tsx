@@ -26,6 +26,36 @@ export function SiteHeader() {
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4 ">
           <nav className="hidden md:flex items-center space-x-1">
+          <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "sm",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </div>
+            </Link>
+            <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "sm",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.linkedin className="h-5 w-5" />
+                <span className="sr-only">Linkedin</span>
+              </div>
+            </Link>
             <Link
               href={siteConfig.links.youtube}
               target="_blank"

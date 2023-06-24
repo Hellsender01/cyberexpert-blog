@@ -12,7 +12,7 @@ export const categories = [
     link: encodeURIComponent("Python For CyberSec"),
   },
   {
-    name: "x64 Assembly Language",
+    name: "x64 Assembly",
     active: false,
     link: encodeURIComponent("x64 Assembly Language"),
   },
@@ -42,12 +42,12 @@ export const categories = [
     link: encodeURIComponent("Active Directory"),
   },
   {
-    name: "oscp",
+    name: "OSCP",
     active: false,
     link: encodeURIComponent("oscp"),
   },
   {
-    name: "Binary Exploitation / Software Security",
+    name: "Binary Exploitation",
     active: false,
     link: encodeURIComponent("Binary Exploitation / Software Security"),
   },
@@ -72,12 +72,12 @@ export const categories = [
     link: encodeURIComponent("Specials"),
   },
   {
-    name: "Network Penetration Testing",
+    name: "Network Penetrating",
     active: false,
     link: encodeURIComponent("Network Penetration Testing"),
   },
   {
-    name: "General Security Education",
+    name: "General Security",
     active: false,
     link: encodeURIComponent("General Security Education"),
   },
@@ -87,7 +87,7 @@ export const categories = [
     link: encodeURIComponent("API HACKING"),
   },
   {
-    name: "Bug Bounty With CTFChallenge",
+    name: "Bug Bounty",
     active: false,
     link: encodeURIComponent("Bug Bounty With CTFChallenge"),
   },

@@ -22,9 +22,9 @@ export function Sidebar({ className, categories }: SidebarProps) {
                         Categories
                     </h2>
 
-                    <div className="space-y-4">
-                        {categories.map((category, i) => (
-                            <Link href={`/videos/${category.link}`} className="space-y-5 gap-3">
+                    {categories.map((category, i) => (
+                        <div className="space-y-4">
+                            <Link href={`/videos/${category.link}`}>
                                 <Button
                                     key={i}
                                     variant={menu?.active ? "secondary" : "ghost"}
@@ -36,8 +36,8 @@ export function Sidebar({ className, categories }: SidebarProps) {
                                     {category.name}
                                 </Button>
                             </Link>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>

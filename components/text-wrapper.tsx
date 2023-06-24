@@ -8,7 +8,7 @@ interface TextWrapperProps {
 const TextWrapper = ({ text, maxLength }: TextWrapperProps) => {
   const truncatedText = text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 
-  return <div style={{ whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'hidden' }}>{truncatedText}</div>;
+  return <div style={{ whiteSpace: 'pre-line', overflow: 'hidden', textOverflow: 'ellipsis' }}>{truncatedText}</div>;
 };
 
 export default TextWrapper;

@@ -36,21 +36,21 @@ export function VideoCard({ title, youtube, thumbnail, description }: VideoCardP
 
   return (
     <>
-      <Card className="w-full">
+      <Card>
         <CardHeader>
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid w-full items-center gap-4">
             <div className="flex flex-col space-y-1.5 items-center justify-center">
+                <div className="w-auto h-auto">
+                  <Image src={`${thumbnail}`} width={340} height={200} className="object-cover" alt="youtube" />
+                </div>
+     
               <CardDescription className="space-y-4">
-      
-                  <img src={`${thumbnail}`} alt="youtube" />
-  
                 <TextWrapper text={description} maxLength={50}/>
               </CardDescription>
             </div>
-          </div>
+
         </CardContent>
         <Separator className="my-2" />
         <CardFooter className="flex-col items-center justify-between space-y-4">

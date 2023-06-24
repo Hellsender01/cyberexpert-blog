@@ -17,18 +17,23 @@ import { Label } from "@/components/ui/label"
 
 import { Switch } from "./ui/switch"
 import { Separator } from "@radix-ui/react-select"
+import Image from "next/image"
+import TextWrapper from "./text-wrapper"
 
 interface VideoCardProps {
   title: string
+  description:string
+  thumbnail:string
   youtube: string
 }
 
-export function VideoCard({ title, youtube }: VideoCardProps) {
 
+export function VideoCard({ title, youtube, thumbnail, description }: VideoCardProps) {
   const [complete, setComplete] = React.useState<boolean>(false);
   const handleToggle = () => {
-    complete ? setComplete(false) : setComplete(true)
+    setComplete((prevComplete) => !prevComplete);
   };
+
   return (
     <>
       <Card className="w-full">
@@ -36,27 +41,26 @@ export function VideoCard({ title, youtube }: VideoCardProps) {
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-          <form>
-            <div className="grid w-full items-center gap-4">
-              <div className="flex flex-col space-y-1.5 items-center justify-center">
-                <CardDescription>
-                  Description
-                </CardDescription>
-              </div>
+          <div className="grid w-full items-center gap-4">
+            <div className="flex flex-col space-y-1.5 items-center justify-center">
+              <CardDescription>
+      
+                  <img src={`${thumbnail}`} alt="youtube" />
+  
+                <TextWrapper text={description} maxLength={50}/>
+              </CardDescription>
             </div>
-          </form>
+          </div>
         </CardContent>
-        <Separator className="my-4" />
+        <Separator className="my-2" />
         <CardFooter className="flex-col items-center justify-between space-y-4">
           <div className="flex items-center gap-4">
-          <Switch id="complete" checked={complete} onClick={handleToggle} />
-            {
-              complete ?
-              
-                <Label htmlFor="complete">completed</Label>
-                : 
-                <Label htmlFor="complete">not completed</Label>
-            }
+            <Switch id="complete" checked={complete} onClick={handleToggle} />
+            {complete ? (
+              <Label htmlFor="complete">completed</Label>
+            ) : (
+              <Label htmlFor="complete">not completed</Label>
+            )}
           </div>
           <Link className="w-full" href={youtube} target="_">
             <Button className="flex items-center w-full">
@@ -67,5 +71,5 @@ export function VideoCard({ title, youtube }: VideoCardProps) {
         </CardFooter>
       </Card>
     </>
-  )
+  );
 }

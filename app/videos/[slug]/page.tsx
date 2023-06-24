@@ -9,7 +9,9 @@ import { Skeleton } from "@/components/ui/skeleton"
 
 interface Video {
   title: string;
-  link: string;
+  description: string;
+  thumbnail_url: string;
+  video_url: string;
 }
 
 interface VideosListProps {
@@ -30,15 +32,16 @@ export default function VideosListPage({ params }: VideosListProps) {
     try {
       const querySnapshot = await db
         .collection("videos")
-        .where("category", "==", category)
+        .where("title", "==", category)
         .get();
 
-      const videos: Video[] = [];
+      const videoList: Video[] = [];
       querySnapshot.forEach((doc) => {
-        videos.push(doc.data() as Video);
+        const { videos } = doc.data();
+        videos.map((Ytvideo: Video) => videoList.push(Ytvideo as Video))
       });
 
-      return videos;
+      return videoList;
     } catch (error) {
       console.error("Error fetching videos:", error);
       return [];
@@ -50,22 +53,9 @@ export default function VideosListPage({ params }: VideosListProps) {
   useEffect(() => {
     setLoading(true)
     const fetchVideos = async () => {
-      let categoryTitle = null;
-      let categoryValue = "";
-
-      if (slug === "web-exploitation") {
-        categoryTitle = "Web Exploitation";
-        categoryValue = "web-exploitation";
-      } else if (slug === "binary-exploitation") {
-        categoryTitle = "Binary Exploitation";
-        categoryValue = "binary-exploitation";
-      } else if (slug === "network-forensics") {
-        categoryTitle = "Network Forensics";
-        categoryValue = "network-forensics";
-      }
-
+      let categoryTitle = decodeURIComponent(slug);
       setTitle(categoryTitle);
-      const videos = await fetchVideosByCategory(categoryValue);
+      const videos = await fetchVideosByCategory(categoryTitle);
       setVideoData(videos);
       setLoading(false)
     };
@@ -75,14 +65,19 @@ export default function VideosListPage({ params }: VideosListProps) {
 
   useEffect(() => {
     const filterVideos = () => {
-      const filteredVideos = videoData.filter((video) =>
-        video.title.toLowerCase().includes(search.toLowerCase())
-      );
+      console.log(videoData);
+      const filteredVideos = videoData.filter((video) => {
+        if (typeof video.title === 'string') {
+          return video.title.toLowerCase().includes(search.toLowerCase());
+        }
+        return false;
+      });
       setFilteredVideoData(filteredVideos);
     };
 
     filterVideos();
   }, [search, videoData]);
+
 
   return (
     <div className="w-full">
@@ -98,7 +93,7 @@ export default function VideosListPage({ params }: VideosListProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 h-full gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {
           loading ?
             <div className="flex flex-col items-start space-y-4">
@@ -108,7 +103,7 @@ export default function VideosListPage({ params }: VideosListProps) {
             </div>
             :
             filteredVideoData.map((video, i) => (
-              <VideoCard key={i} title={video.title} youtube={video.link} />
+              <VideoCard key={i} title={video.title} youtube={video.video_url} thumbnail={video.thumbnail_url} description={video.description} />
             ))}
       </div>
     </div>

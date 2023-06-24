@@ -58,8 +58,8 @@ export function VideoCard({ title, youtube }: VideoCardProps) {
                 <Label htmlFor="complete">not completed</Label>
             }
           </div>
-          <Link href={youtube} target="_">
-            <Button className="flex items-center">
+          <Link className="w-full" href={youtube} target="_">
+            <Button className="flex items-center w-full">
               Open
               <ArrowUpRight className="h-4 w-4" />
             </Button>

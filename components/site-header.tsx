@@ -74,7 +74,8 @@ export function SiteHeader() {
 
             <ThemeToggle />
           </nav>
-          <div className="block md:hidden">
+          <div className="flex items-center space-x-2 md:hidden">
+          <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>
                 <Icons.menu className="h-5 w-5 fill-current cursor-pointer" />

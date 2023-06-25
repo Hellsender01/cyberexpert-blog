@@ -143,9 +143,9 @@ export function SiteHeader() {
                       <Button className="w-full" variant={"ghost"}>Categories</Button>
                     </SheetClose>
                   </Link>
-                  <Link href={"/about"} className="w-full">
+                  <Link href={"/support"} className="w-full">
                     <SheetClose asChild>
-                      <Button className="w-full" variant={"ghost"}>About</Button>
+                      <Button className="w-full" variant={"ghost"}>Support</Button>
                     </SheetClose>
                   </Link>
                 </div>

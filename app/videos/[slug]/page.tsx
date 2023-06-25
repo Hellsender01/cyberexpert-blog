@@ -1,12 +1,10 @@
 "use client"
-
 import { useEffect, useState } from "react";
 import firebase from "@/firebaseConfig";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Input } from "@/components/ui/input";
 import { VideoCard } from "@/components/videocard";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Icons } from "@/components/icons";
 
 interface Video {
   title: string;
@@ -83,7 +81,7 @@ export default function VideosListPage({ params }: VideosListProps) {
   // Pagination logic
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = filteredVideoData.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = filteredVideoData?.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
@@ -105,13 +103,14 @@ export default function VideosListPage({ params }: VideosListProps) {
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {loading ? (
-          <div className="flex flex-col items-start space-y-4">
-            <Skeleton className="h-20 w-[400px]" />
-            <Skeleton className="h-12 w-[400px]" />
-            <Skeleton className="h-12 w-[400px]" />
-          </div>
-        ) : (
-          currentItems.map((video, i) => (
+          Array.from({ length: 6 }).map((_, index) => (
+            <div className="flex flex-col items-start space-y-4">
+              <Skeleton className="h-20 w-[400px]" />
+              <Skeleton className="h-12 w-[400px]" />
+              <Skeleton className="h-12 w-[400px]" />
+            </div>
+          ))) : (
+          currentItems?.map((video, i) => (
             <VideoCard
               key={i}
               title={video.title}
@@ -124,20 +123,28 @@ export default function VideosListPage({ params }: VideosListProps) {
       </div>
 
       {/* Pagination */}
-      <div className="my-4 flex justify-center">
-        {filteredVideoData.length > itemsPerPage && (
+      {filteredVideoData.length > itemsPerPage && (
+        <div className="my-4 flex justify-center">
+          <button
+            className="rounded bg-primary px-2 py-1 text-primary-foreground "
+            onClick={() => paginate(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
           <ul className="flex space-x-2">
             {currentPage > 1 && (
               <li
-                className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
+                className={`rounded bg-primary px-4 py-1 text-primary-foreground `}
                 onClick={() => paginate(currentPage - 1)}
               >
-                <Icons.moveLeft className="h-5 w-5" />
+                {"<"}
               </li>
             )}
 
             <li
-              className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
+              className={`rounded bg-primary px-4 py-1 text-primary-foreground `}
               onClick={() => paginate(currentPage)}
             >
               {currentPage}
@@ -145,16 +152,23 @@ export default function VideosListPage({ params }: VideosListProps) {
 
             {currentPage < Math.ceil(filteredVideoData.length / itemsPerPage) && (
               <li
-                className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
+                className={`rounded bg-primary px-4 py-1 text-primary-foreground `}
                 onClick={() => paginate(currentPage + 1)}
               >
-                <Icons.moveRight className="h-5 w-5"/>
+                {">"}
               </li>
             )}
           </ul>
-        )}
-      </div>
 
+          <button
+            className="rounded bg-primary px-2 py-1 text-primary-foreground "
+            onClick={() => paginate(currentPage + 1)}
+            disabled={currentPage === Math.ceil(filteredVideoData.length / itemsPerPage)}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Categories } from "../data/categories"
 
 import { siteConfig } from "@/config/site"
 import { buttonVariants } from "@/components/ui/button"
@@ -27,7 +26,22 @@ export function SiteHeader() {
         <div className="flex flex-1 items-center justify-end space-x-4 ">
           <nav className="hidden items-center space-x-1 md:flex">
             <Link
-              href={siteConfig.links.github}
+              href={siteConfig.links.discord}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "sm",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.discord className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </div>
+            </Link>
+            <Link
+              href={siteConfig.links.instagram}
               target="_blank"
               rel="noreferrer"
             >
@@ -42,7 +56,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <Link
-              href={siteConfig.links.github}
+              href={siteConfig.links.linkedin}
               target="_blank"
               rel="noreferrer"
             >
@@ -120,20 +134,59 @@ export function SiteHeader() {
                 <Separator className="my-2" />
                 <div className="flex w-full flex-col items-center justify-center space-y-4 p-4">
                   <Link href={"/"} className="w-full">
-                    <Button className="w-full" variant={"ghost"}>Home</Button>
+                    <SheetClose asChild>
+                      <Button className="w-full" variant={"ghost"}>Home</Button>
+                    </SheetClose>
                   </Link>
                   <Link href={"/videos"} className="w-full">
-                    <Button className="w-full" variant={"ghost"}>Categories</Button>
+                    <SheetClose asChild>
+                      <Button className="w-full" variant={"ghost"}>Categories</Button>
+                    </SheetClose>
                   </Link>
                   <Link href={"/about"} className="w-full">
-                    <Button className="w-full" variant={"ghost"}>About</Button>
+                    <SheetClose asChild>
+                      <Button className="w-full" variant={"ghost"}>About</Button>
+                    </SheetClose>
                   </Link>
                 </div>
-                <SheetFooter>
+
+                <SheetFooter className="my-2 space-y-4">
+                  <Separator className="my-2" />
+                  <h1 className="text-center font-semibold">Follow me On</h1>
                   <SheetClose asChild>
-                    <Button className="flex-inline gap-2" type="submit">Open in
-                      <Icons.youtube />
-                    </Button>
+                    <Link href={siteConfig.links.youtube} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2"  variant={"ghost"} type="submit">Subscribe on
+                        <Icons.youtube />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={siteConfig.links.discord} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Join Our
+                        <Icons.discord />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={siteConfig.links.instagram} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Follow on
+                        <Icons.instagram />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={siteConfig.links.linkedin} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Connect on
+                        <Icons.linkedin />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={siteConfig.links.twitter} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2" type="submit">Follow on
+                        <Icons.twitter />
+                      </Button>
+                    </Link>
                   </SheetClose>
                 </SheetFooter>
               </SheetContent>

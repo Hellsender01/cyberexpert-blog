@@ -22,6 +22,9 @@ export const siteConfig = {
   links: {
     twitter: "https://twitter.com/TheCyberExpert_",
     github: "https://github.com/Hellsender01",
-    youtube: "https://www.youtube.com/@TheCyberExpert"
+    youtube: "https://www.youtube.com/@TheCyberExpert",
+    linkedin: "https://linkedIn.com/in/harshitjoshi01",
+    instagram: "https://instagram.com/harshitjoshi01",
+    discord: "https://discord.gg/cc9JHxaWmr"
   },
 }

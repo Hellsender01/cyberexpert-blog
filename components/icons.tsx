@@ -11,6 +11,8 @@ import {
   MoveRight,
 } from "lucide-react"
 
+import { BsDiscord } from "react-icons/bs"
+
 export type Icon = LucideIcon
 
 export const Icons = {
@@ -20,6 +22,7 @@ export const Icons = {
   menu : MenuIcon,
   instagram: Instagram,
   linkedin: LinkedinIcon,
+  discord: BsDiscord,
   moveLeft: MoveLeft,
   moveRight: MoveRight,
   logo: (props: LucideProps) => (

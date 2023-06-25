@@ -5,6 +5,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { Input } from "@/components/ui/input";
 import { VideoCard } from "@/components/videocard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Icons } from "@/components/icons";
 
 interface Video {
   title: string;
@@ -125,13 +126,7 @@ export default function VideosListPage({ params }: VideosListProps) {
       {/* Pagination */}
       {filteredVideoData.length > itemsPerPage && (
         <div className="my-4 flex justify-center">
-          <button
-            className="rounded bg-primary px-2 py-1 text-primary-foreground "
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Previous
-          </button>
+
 
           <ul className="flex space-x-2">
             {currentPage > 1 && (
@@ -139,7 +134,7 @@ export default function VideosListPage({ params }: VideosListProps) {
                 className={`rounded bg-primary px-4 py-1 text-primary-foreground `}
                 onClick={() => paginate(currentPage - 1)}
               >
-                {"<"}
+                <Icons.moveLeft />
               </li>
             )}
 
@@ -155,18 +150,10 @@ export default function VideosListPage({ params }: VideosListProps) {
                 className={`rounded bg-primary px-4 py-1 text-primary-foreground `}
                 onClick={() => paginate(currentPage + 1)}
               >
-                {">"}
+                <Icons.moveRight />
               </li>
             )}
           </ul>
-
-          <button
-            className="rounded bg-primary px-2 py-1 text-primary-foreground "
-            onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === Math.ceil(filteredVideoData.length / itemsPerPage)}
-          >
-            Next
-          </button>
         </div>
       )}
     </div>

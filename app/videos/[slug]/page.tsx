@@ -1,10 +1,12 @@
 "use client"
+
 import { useEffect, useState } from "react";
 import firebase from "@/firebaseConfig";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { Input } from "@/components/ui/input";
 import { VideoCard } from "@/components/videocard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Icons } from "@/components/icons";
 
 interface Video {
   title: string;
@@ -104,9 +106,9 @@ export default function VideosListPage({ params }: VideosListProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {loading ? (
           <div className="flex flex-col items-start space-y-4">
-            <Skeleton className="h-12 w-[250px]" />
-            <Skeleton className="h-6 w-[250px]" />
-            <Skeleton className="h-6 w-[200px]" />
+            <Skeleton className="h-20 w-[400px]" />
+            <Skeleton className="h-12 w-[400px]" />
+            <Skeleton className="h-12 w-[400px]" />
           </div>
         ) : (
           currentItems.map((video, i) => (
@@ -125,22 +127,34 @@ export default function VideosListPage({ params }: VideosListProps) {
       <div className="flex justify-center my-4">
         {filteredVideoData.length > itemsPerPage && (
           <ul className="flex space-x-2">
-            {Array.from({ length: Math.ceil(filteredVideoData.length / itemsPerPage) }).map(
-              (_, index) => (
-                <li
-                  key={index}
-                  className={`px-4 py-1 rounded bg-primary text-primary-foreground ${
-                    index + 1 === currentPage ? "bg-transparent text-slate-100 border-2 border-white" : "bg-gray-300"
-                  }`}
-                  onClick={() => paginate(index + 1)}
-                >
-                  {index + 1}
-                </li>
-              )
+            {currentPage > 1 && (
+              <li
+                className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+                onClick={() => paginate(currentPage - 1)}
+              >
+                <Icons.moveLeft className="h-5 w-5" />
+              </li>
+            )}
+
+            <li
+              className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+              onClick={() => paginate(currentPage)}
+            >
+              {currentPage}
+            </li>
+
+            {currentPage < Math.ceil(filteredVideoData.length / itemsPerPage) && (
+              <li
+                className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+                onClick={() => paginate(currentPage + 1)}
+              >
+                <Icons.moveRight className="h-5 w-5"/>
+              </li>
             )}
           </ul>
         )}
       </div>
+
     </div>
   );
 }

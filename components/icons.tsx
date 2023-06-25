@@ -7,6 +7,8 @@ import {
   MenuIcon,
   Instagram,
   LinkedinIcon,
+  MoveLeft,
+  MoveRight,
 } from "lucide-react"
 
 export type Icon = LucideIcon
@@ -18,6 +20,8 @@ export const Icons = {
   menu : MenuIcon,
   instagram: Instagram,
   linkedin: LinkedinIcon,
+  moveLeft: MoveLeft,
+  moveRight: MoveRight,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

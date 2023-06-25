@@ -3,12 +3,16 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input"
 import CategoryCard from "@/components/categorycard";
 import firebase from "@/firebaseConfig";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const VideoPage = () => {
     const [categories, setCategories] = useState<string[]>([])
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
+
 
     useEffect(() => {
+        setLoading(true);
         const fetchCategories = async () => {
             const db = firebase.firestore();
             try {
@@ -20,6 +24,7 @@ const VideoPage = () => {
                     categoryList.push(title);
                 });
                 setCategories(categoryList);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching categories:', error);
             }
@@ -27,10 +32,6 @@ const VideoPage = () => {
 
         fetchCategories();
     }, []);
-
-    useEffect(() => {
-        console.log(categories);
-    }, [categories]);
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -51,10 +52,16 @@ const VideoPage = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 h-full gap-4 py-4">
-                {
+
+                {loading ?  (
+                    Array.from({ length: 10 }).map((_, index) => (
+                    <div className="flex flex-col items-start gap-4">
+                        <Skeleton className="h-full w-full" />
+                    </div>
+                ))) :(
                     filteredCategories.map((category, index) => (
                         <CategoryCard key={index} title={category} link={encodeURIComponent(category)} />
-                    ))
+                    )))  
                 }
             </div>
         </div>

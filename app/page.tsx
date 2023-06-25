@@ -57,9 +57,9 @@ export default function IndexPage() {
       </div>
 
       <div className="mx-10">
-        <h1 className="text-3xl font-semibold uppercase leading-tight tracking-tighter text-center md:text-start md:text-4xl py-6">
+        {/* <h1 className="text-3xl font-semibold uppercase leading-tight tracking-tighter text-center md:text-start md:text-4xl py-6">
           Latest Videos
-        </h1>
+        </h1> */}
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {latestVideos.map((video) => (

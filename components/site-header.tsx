@@ -148,6 +148,11 @@ export function SiteHeader() {
                       <Button className="w-full" variant={"ghost"}>Support</Button>
                     </SheetClose>
                   </Link>
+                  <Link href={"/faq"} className="w-full">
+                    <SheetClose asChild>
+                      <Button className="w-full" variant={"ghost"}>FAQ</Button>
+                    </SheetClose>
+                  </Link>
                 </div>
 
                 <SheetFooter className="my-2 space-y-4">

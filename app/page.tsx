@@ -40,17 +40,17 @@ export default function IndexPage() {
   }, []);
 
   return (
-    <section className="md:container grid items-center gap-6 pb-8 pt-6 md:py-10 max-h-screen">
+    <section className="grid max-h-screen items-center gap-6 pb-8 pt-6 md:container md:py-10">
       <div className="flex max-w-full flex-col items-center justify-center gap-2 py-14">
-        <h1 className="text-3xl font-bold uppercase leading-tight tracking-tighter text-center md:text-4xl">
+        <h1 className="text-center text-3xl font-bold uppercase leading-tight tracking-tighter md:text-4xl">
           The Cyber Expert
         </h1>
 
-        <div className="w-[80%] md:w-[50%] py-4 items-center">
+        <div className="w-[80%] items-center py-4 md:w-[50%]">
           <Input
             search={true}
             type="text"
-            className="md:h-[60px] dark:bg-gray-700 ring-white dark:hover:bg-gray-700 transition-colors rounded-md focus-visible:outline-none "
+            className="rounded-md ring-white transition-colors focus-visible:outline-none dark:bg-gray-700 dark:hover:bg-gray-700 md:h-[60px] "
           />
           {/* <Button variant="default" size="lg">Search</Button> */}
         </div>
@@ -61,7 +61,7 @@ export default function IndexPage() {
           Latest Videos
         </h1> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {latestVideos.map((video) => (
             <VideoCard
               key={video.title}

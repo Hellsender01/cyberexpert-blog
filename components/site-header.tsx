@@ -25,8 +25,8 @@ export function SiteHeader() {
       <div className="container flex h-20 items-center space-x-4 sm:justify-between sm:space-x-0">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4 ">
-          <nav className="hidden md:flex items-center space-x-1">
-          <Link
+          <nav className="hidden items-center space-x-1 md:flex">
+            <Link
               href={siteConfig.links.github}
               target="_blank"
               rel="noreferrer"
@@ -105,10 +105,10 @@ export function SiteHeader() {
             <ThemeToggle />
           </nav>
           <div className="flex items-center space-x-2 md:hidden">
-          <ThemeToggle />
+            <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>
-                <Icons.menu className="h-5 w-5 fill-current cursor-pointer" />
+                <Icons.menu className="h-5 w-5 cursor-pointer fill-current" />
               </SheetTrigger>
               <SheetContent side={"left"}>
                 <SheetHeader>
@@ -118,21 +118,21 @@ export function SiteHeader() {
                   </SheetDescription>
                 </SheetHeader>
                 <Separator className="my-2" />
-                <div className="flex flex-col items-center justify-center p-4 w-full space-y-4">
-                  <Link  href={"/"} className="w-full">
+                <div className="flex w-full flex-col items-center justify-center space-y-4 p-4">
+                  <Link href={"/"} className="w-full">
                     <Button className="w-full" variant={"ghost"}>Home</Button>
                   </Link>
-                  <Link  href={"/videos"} className="w-full">
+                  <Link href={"/videos"} className="w-full">
                     <Button className="w-full" variant={"ghost"}>Categories</Button>
                   </Link>
-                  <Link  href={"/about"} className="w-full">
+                  <Link href={"/about"} className="w-full">
                     <Button className="w-full" variant={"ghost"}>About</Button>
                   </Link>
                 </div>
                 <SheetFooter>
                   <SheetClose asChild>
-                    <Button className="flex-inline gap-2" type="submit">Open in 
-                    <Icons.youtube />
+                    <Button className="flex-inline gap-2" type="submit">Open in
+                      <Icons.youtube />
                     </Button>
                   </SheetClose>
                 </SheetFooter>

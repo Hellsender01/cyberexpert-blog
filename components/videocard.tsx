@@ -41,8 +41,8 @@ export function VideoCard({ title, youtube, thumbnail, description }: VideoCardP
           <CardTitle>{title}</CardTitle>
         </CardHeader>
         <CardContent>
-            <div className="flex flex-col space-y-1.5 items-center justify-center">
-                <div className="w-auto h-auto">
+            <div className="flex flex-col items-center justify-center space-y-1.5">
+                <div className="h-auto w-auto">
                   <Image src={`${thumbnail}`} width={340} height={200} className="object-cover" alt="youtube" />
                 </div>
      
@@ -63,7 +63,7 @@ export function VideoCard({ title, youtube, thumbnail, description }: VideoCardP
             )}
           </div>
           <Link className="w-full" href={youtube} target="_">
-            <Button className="flex items-center w-full">
+            <Button className="flex w-full items-center">
               Open
               <ArrowUpRight className="h-4 w-4" />
             </Button>

@@ -10,8 +10,8 @@ interface VideoLayoutProps {
 export default function VideoLayout ({ children }: VideoLayoutProps) {
     return (
    
-            <div className="flex w-full container">
-                <div className="hidden md:block w-[20%]">
+            <div className="container flex w-full">
+                <div className="hidden w-[20%] md:block">
                     <Sidebar categories={categories} />
                 </div>
                 <>

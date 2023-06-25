@@ -23,7 +23,7 @@ export function Sidebar({ className, categories }: SidebarProps) {
                     </h2>
 
                     {categories.map((category, i) => (
-                        <div className="space-y-4">
+                        <div className="space-y-4" key={i}>
                             <Link href={`/videos/${category.link}`}>
                                 <Button
                                     key={i}

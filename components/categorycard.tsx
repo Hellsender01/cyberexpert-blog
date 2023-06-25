@@ -8,7 +8,7 @@ interface CategoryProps {
 
 const CategoryCard = ({ title, link }:CategoryProps) => {
     return (
-        <div className="border hover:shadow-lg text-center">
+        <div className="border text-center hover:shadow-lg">
             <Link href={`/videos/${link}`}>
                 <CardHeader className="text-lg font-bold">{title}</CardHeader>
             </Link>

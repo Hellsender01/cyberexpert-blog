@@ -92,7 +92,7 @@ export default function VideosListPage({ params }: VideosListProps) {
   return (
     <div className="w-full">
       <div className="flex items-center space-y-4 pb-10">
-        <h1 className="md:text-3xl dark:text-white">{title}</h1>
+        <h1 className="dark:text-white md:text-3xl">{title}</h1>
         <div className="ml-auto">
           <Input
             className="shadow-md"
@@ -103,7 +103,7 @@ export default function VideosListPage({ params }: VideosListProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {loading ? (
           <div className="flex flex-col items-start space-y-4">
             <Skeleton className="h-20 w-[400px]" />
@@ -124,12 +124,12 @@ export default function VideosListPage({ params }: VideosListProps) {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center my-4">
+      <div className="my-4 flex justify-center">
         {filteredVideoData.length > itemsPerPage && (
           <ul className="flex space-x-2">
             {currentPage > 1 && (
               <li
-                className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+                className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
                 onClick={() => paginate(currentPage - 1)}
               >
                 <Icons.moveLeft className="h-5 w-5" />
@@ -137,7 +137,7 @@ export default function VideosListPage({ params }: VideosListProps) {
             )}
 
             <li
-              className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+              className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
               onClick={() => paginate(currentPage)}
             >
               {currentPage}
@@ -145,7 +145,7 @@ export default function VideosListPage({ params }: VideosListProps) {
 
             {currentPage < Math.ceil(filteredVideoData.length / itemsPerPage) && (
               <li
-                className={`px-4 py-1 rounded bg-primary text-primary-foreground bg-gray-300`}
+                className={`rounded bg-primary px-4 py-1 text-primary-foreground`}
                 onClick={() => paginate(currentPage + 1)}
               >
                 <Icons.moveRight className="h-5 w-5"/>

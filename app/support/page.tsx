@@ -9,7 +9,7 @@ import {
 const SupportPage = () => {
     return (
         <section className="container mx-auto">
-            <h1 className="text-3xl font-bold tracking-tighte leading-tight">Support</h1>
+            <h1 className="text-3xl font-bold leading-tight tracking-tighter">Support</h1>
 
             <div className="">
                 <Accordion type="single" collapsible>

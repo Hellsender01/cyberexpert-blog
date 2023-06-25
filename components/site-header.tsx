@@ -155,36 +155,36 @@ export function SiteHeader() {
                   <h1 className="text-center font-semibold">Follow me On</h1>
                   <SheetClose asChild>
                     <Link href={siteConfig.links.youtube} target="_" className="w-full">
-                      <Button className="flex-inline w-full gap-2"  variant={"ghost"} type="submit">Subscribe on
-                        <Icons.youtube />
-                      </Button>
-                    </Link>
-                  </SheetClose>
-                  <SheetClose asChild>
-                    <Link href={siteConfig.links.discord} target="_" className="w-full">
-                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Join Our
-                        <Icons.discord />
+                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Subscribe on
+                        <Icons.youtube className="h-5 w-5" />
                       </Button>
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href={siteConfig.links.instagram} target="_" className="w-full">
                       <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Follow on
-                        <Icons.instagram />
+                        <Icons.instagram className="h-5 w-5 " />
                       </Button>
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href={siteConfig.links.linkedin} target="_" className="w-full">
                       <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Connect on
-                        <Icons.linkedin />
+                        <Icons.linkedin className="h-5 w-5 " />
                       </Button>
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href={siteConfig.links.twitter} target="_" className="w-full">
-                      <Button className="flex-inline w-full gap-2" type="submit">Follow on
-                        <Icons.twitter />
+                      <Button className="flex-inline w-full gap-2" variant={"ghost"} type="submit">Follow on
+                        <Icons.twitter className="h-5 w-5" />
+                      </Button>
+                    </Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href={siteConfig.links.discord} target="_" className="w-full">
+                      <Button className="flex-inline w-full gap-2" type="submit">Join Our
+                        <Icons.discord className="h-5 w-5 " />
                       </Button>
                     </Link>
                   </SheetClose>

@@ -19,7 +19,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ className, type,
         {...props}
       />
       {search && (
-        <SearchIcon className="absolute left-3 top-2/4 transform -translate-y-2/4 text-gray-500 pointer-events-none" />
+        <SearchIcon className="pointer-events-none absolute left-3 top-2/4 -translate-y-2/4 text-gray-500" />
       )}
     </div>
   );

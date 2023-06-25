@@ -9,6 +9,8 @@ import {
   LinkedinIcon,
   MoveLeft,
   MoveRight,
+  Search,
+  X,
 } from "lucide-react"
 
 import { BsDiscord } from "react-icons/bs"
@@ -25,6 +27,8 @@ export const Icons = {
   discord: BsDiscord,
   moveLeft: MoveLeft,
   moveRight: MoveRight,
+  search: Search,
+  close: X,
   logo: (props: LucideProps) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
       <path

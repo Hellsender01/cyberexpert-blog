@@ -69,6 +69,7 @@ export default function IndexPage() {
               description={video.description}
               thumbnail={video.thumbnail_url}
               youtube={video.video_url}
+              completeBtn={true}
             />
           ))}
         </div>

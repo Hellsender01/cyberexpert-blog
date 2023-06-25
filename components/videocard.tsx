@@ -25,10 +25,11 @@ interface VideoCardProps {
   description:string
   thumbnail:string
   youtube: string
+  completeBtn: boolean
 }
 
 
-export function VideoCard({ title, youtube, thumbnail, description }: VideoCardProps) {
+export function VideoCard({ title, youtube, thumbnail, description, completeBtn }: VideoCardProps) {
   const [complete, setComplete] = React.useState<boolean>(false);
   const handleToggle = () => {
     setComplete((prevComplete) => !prevComplete);
@@ -54,14 +55,18 @@ export function VideoCard({ title, youtube, thumbnail, description }: VideoCardP
         </CardContent>
         <Separator className="my-2" />
         <CardFooter className="flex-col items-center justify-between space-y-4">
-          <div className="flex items-center gap-4">
-            <Switch id="complete" checked={complete} onClick={handleToggle} />
-            {complete ? (
-              <Label htmlFor="complete">completed</Label>
-            ) : (
-              <Label htmlFor="complete">not completed</Label>
-            )}
-          </div>
+          {
+            completeBtn && (
+            <div className="flex items-center gap-4">
+              <Switch id="complete" checked={complete} onClick={handleToggle} />
+              {complete ? (
+                <Label htmlFor="complete">completed</Label>
+              ) : (
+                <Label htmlFor="complete">not completed</Label>
+              )}
+            </div>
+            )
+          }
           <Link className="w-full" href={youtube} target="_">
             <Button className="flex w-full items-center">
               Open

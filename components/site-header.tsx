@@ -118,7 +118,7 @@ export function SiteHeader() {
 
             <ThemeToggle />
           </nav>
-          <div className="flex items-center space-x-2 md:hidden">
+          <div className="flex items-center space-x-2 md:hidden space-y-4">
             <ThemeToggle />
             <Sheet>
               <SheetTrigger asChild>

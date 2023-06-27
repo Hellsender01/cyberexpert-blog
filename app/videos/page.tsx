@@ -51,7 +51,7 @@ const VideoPage = () => {
                 </div>
             </div>
 
-            <div className="grid h-full grid-cols-1 gap-4 py-4 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">
 
                 {loading ?  (
                     Array.from({ length: 10 }).map((_, index) => (

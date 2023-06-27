@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import firebase from "@/firebaseConfig";
-import { useCollection } from "react-firebase-hooks/firestore";
 import { Input } from "@/components/ui/input";
 import { VideoCard } from "@/components/videocard";
 import { Skeleton } from "@/components/ui/skeleton";

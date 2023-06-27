@@ -39,7 +39,7 @@ export function VideoCard({ title, youtube, thumbnail, description, completeBtn 
     <>
       <Card>
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className="text-clip overflow-hidden">{title}</CardTitle>
         </CardHeader>
         <CardContent>
             <div className="flex flex-col items-center justify-center space-y-1.5">

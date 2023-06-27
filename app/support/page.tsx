@@ -9,7 +9,6 @@ export default function SupportPage(){
                 <VideoCard title={"Pateron"} description={"Support us through patreon"} thumbnail={""} youtube={""} completeBtn={false} />
                 <VideoCard title={"Pateron"} description={"Support us through patreon"} thumbnail={""} youtube={""} completeBtn={false} />
                 <VideoCard title={"Pateron"} description={"Support us through patreon"} thumbnail={""} youtube={""} completeBtn={false} />
-                <VideoCard title={"Pateron"} description={"Support us through patreon"} thumbnail={""} youtube={""} completeBtn={false} />
             </div>
         </section>
     )

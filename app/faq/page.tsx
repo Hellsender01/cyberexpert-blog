@@ -9,7 +9,7 @@ import {
 const FAQPage = () => {
     return (
         <section className="container mx-auto mb-6">
-            <h1 className="text-3xl font-bold leading-tight tracking-tighter py-4 mb-4">FAQ</h1>
+            <h1 className="mb-4 py-4 text-3xl font-bold leading-tight tracking-tighter">FAQ</h1>
 
             <div className="space-y-8">
                 <Accordion type="single" collapsible>

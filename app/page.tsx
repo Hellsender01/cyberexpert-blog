@@ -23,7 +23,7 @@ export default function IndexPage() {
       const db = firebase.firestore();
       try {
         const videoList: Video[] = [];
-        const querySnapshot = await db.collection("videos").limit(3).get();
+        const querySnapshot = await db.collection("videos").limit(5).get();
 
         querySnapshot.forEach((doc) => {
           const { videos } = doc.data();
@@ -58,10 +58,10 @@ export default function IndexPage() {
 
       <div className="mx-10">
         {/* <h1 className="text-3xl font-semibold uppercase leading-tight tracking-tighter text-center md:text-start md:text-4xl py-6">
-          Latest Videos
-        </h1> */}
+    Latest Videos
+  </h1> */}
 
-        <div className="mb-6 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mb-6 grid grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-3">
           {latestVideos.map((video) => (
             <VideoCard
               key={video.title}
@@ -74,6 +74,7 @@ export default function IndexPage() {
           ))}
         </div>
       </div>
+
     </section>
   );
 }

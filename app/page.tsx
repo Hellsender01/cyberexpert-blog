@@ -23,7 +23,7 @@ export default function IndexPage() {
       const db = firebase.firestore();
       try {
         const videoList: Video[] = [];
-        const querySnapshot = await db.collection("videos").limit(5).get();
+        const querySnapshot = await db.collection("videos").limit(6).get();
 
         querySnapshot.forEach((doc) => {
           const { videos } = doc.data();
@@ -73,6 +73,8 @@ export default function IndexPage() {
             />
           ))}
         </div>
+
+        <h1 className="my-4 text-center text-3xl leading-relaxed tracking-tighter">Got questions? Check out our FAQ page for answers. Want to support us? Visit our Support page and make a donation!</h1>
       </div>
 
     </section>

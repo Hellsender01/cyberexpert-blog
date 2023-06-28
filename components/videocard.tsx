@@ -22,8 +22,8 @@ import TextWrapper from "./text-wrapper"
 
 interface VideoCardProps {
   title: string
-  description:string
-  thumbnail:string
+  description: string
+  thumbnail: string
   youtube: string
   completeBtn: boolean
 }
@@ -42,29 +42,29 @@ export function VideoCard({ title, youtube, thumbnail, description, completeBtn 
           <CardTitle className="break-all">{title}</CardTitle>
         </CardHeader>
         <CardContent>
-            <div className="flex flex-col items-center justify-center space-y-1.5">
-                <div className="h-auto w-auto">
-                  <Image src={`${thumbnail}`} width={340} height={200} className="object-cover" alt="youtube" />
-                </div>
-     
-              <CardDescription className="space-y-4">
-                <TextWrapper text={description} maxLength={50}/>
-              </CardDescription>
+          <div className="flex flex-col items-center justify-center space-y-1.5">
+            <div className="h-auto w-auto">
+              <Image src={`${thumbnail}`} width={340} height={200} className="h-full w-full object-cover" alt="youtube" />
             </div>
+
+            <CardDescription className="space-y-4">
+              <TextWrapper text={description} maxLength={70} />
+            </CardDescription>
+          </div>
 
         </CardContent>
         <Separator className="my-2" />
         <CardFooter className="flex-col items-center justify-between space-y-4">
           {
             completeBtn && (
-            <div className="flex items-center gap-4">
-              <Switch id="complete" checked={complete} onClick={handleToggle} />
-              {complete ? (
-                <Label htmlFor="complete">completed</Label>
-              ) : (
-                <Label htmlFor="complete">not completed</Label>
-              )}
-            </div>
+              <div className="flex items-center gap-4">
+                <Switch id="complete" checked={complete} onClick={handleToggle} />
+                {complete ? (
+                  <Label htmlFor="complete">completed</Label>
+                ) : (
+                  <Label htmlFor="complete">not completed</Label>
+                )}
+              </div>
             )
           }
           <Link className="w-full" href={youtube} target="_">

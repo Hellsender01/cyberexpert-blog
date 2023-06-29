@@ -74,7 +74,7 @@ export default function IndexPage() {
           ))}
         </div>
 
-        <h1 className="my-4 text-center text-3xl leading-relaxed tracking-tighter">Got questions? Check out our FAQ page for answers. Want to support us? Visit our Support page and make a donation!</h1>
+        <h1 className="my-5 text-center leading-relaxed tracking-tighter">Got questions? Check out our FAQ page for answers. Want to support us? Visit our Support page and make a donation!</h1>
       </div>
 
     </section>

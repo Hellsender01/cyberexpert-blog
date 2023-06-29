@@ -37,23 +37,24 @@ export function VideoCard({ title, youtube, thumbnail, description, completeBtn 
 
   return (
     <>
-      <Card>
-        <CardHeader>
-          <CardTitle className="break-all">{title}</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col items-center justify-center space-y-1.5">
-            <div className="h-auto w-auto">
-              <Image src={`${thumbnail}`} width={340} height={200} className="h-full w-full object-cover" alt="youtube" />
+      <Card className="flex flex-col justify-between">
+        <div>
+          <CardHeader>
+            <CardTitle className="break-all">{title}</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-col items-center justify-center space-y-1.5">
+              <div className="h-auto w-auto">
+                <Image src={`${thumbnail}`} width={340} height={200} className="h-full w-full object-cover" alt="youtube" />
+              </div>
+
+              <CardDescription className="space-y-4">
+                <TextWrapper text={description} maxLength={70} />
+              </CardDescription>
             </div>
 
-            <CardDescription className="space-y-4">
-              <TextWrapper text={description} maxLength={70} />
-            </CardDescription>
-          </div>
-
-        </CardContent>
-        <Separator className="my-2" />
+          </CardContent>
+        </div>
         <CardFooter className="flex-col items-center justify-between space-y-4">
           {
             completeBtn && (

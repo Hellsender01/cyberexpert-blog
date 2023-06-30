@@ -1,8 +1,8 @@
 import React from 'react';
 
 interface TextWrapperProps {
-    text: string;
-    maxLength: number;
+  text: string;
+  maxLength: number;
 }
 
 const TextWrapper = ({ text, maxLength }: TextWrapperProps) => {

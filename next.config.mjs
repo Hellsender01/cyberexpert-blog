@@ -6,7 +6,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['i.ytimg.com'],
+    domains: ['i.ytimg.com', 'cdn.freebiesupply.com', 'buymeacoffee.com', 'iili.io'],
   },
 }
 
